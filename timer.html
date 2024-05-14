@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Solar Meditation</title>
+    </head>
+    <body>
+        <div id="timerDiv"><p id="timer">00:00</p></div>
+        <button type="button" id="exit" onclick="window.location.href = 'index.html';">Exit</button>
+    </body>
+    <style>
+        body{
+            background: #2d84a9;
+        }
+        #timerDiv{
+            width: 97%;
+            margin: 0 auto;
+            height: 69vh;
+            font-size: 72px;
+            border-width: 0;
+            border-radius: 26px;
+            background: #2d84a9;
+            box-shadow: inset 5px 5px 10px #266f8e,
+            inset -5px -5px 10px #3499c4;
+            text-align: center;
+            position: relative;
+        }
+        #timerDiv p{
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #exit{
+            width: 97%;
+            margin: 0 auto;
+            height: 29vh;
+            font-size: 72px;
+            text-align: center;
+            border-radius: 26px;
+            border-width: 0;
+            background: #2d84a9;
+            box-shadow:  5px 5px 10px #266f8e,
+             -5px -5px 10px #3499c4;
+        }
+    </style>
+    <script>
+	var url = new URL(window.location.href);
+        var params = url.searchParams;
+        var minutes = params.get("time");
+        var seconds = minutes * 60;
+        var bell = new Audio("bell.ogx");
+        bell.play();
+        var x = setInterval( () =>{
+            var min = Math.floor(seconds/60);
+            var sec = Math.floor((seconds/60 - min) * 60);
+            document.getElementById("timer").innerHTML = min + ":" + sec;
+	    console.log(min + ":" + sec);
+	    seconds--;
+	    if(seconds < 0){
+		    clearInterval(x);
+		    document.getElementById("timer").innterHTML = "Done";
+            bell.play();
+        }
+    }, 1000);
+    </script>
+</html>
