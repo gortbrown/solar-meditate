@@ -5,7 +5,7 @@
     </head>
     <body>
         <button type="button" id="start" onclick="window.location.href = 'timer.html?time=' + document.getElementById('minutes').value;">Start</button>
-        <div style= "margin-top: 10vh; margin-left: auto; margin-right: auto;">
+        <div style= "margin-top: 10vh; width: 100%">
             <button type="button" class="minControls" id="dec" onclick="document.getElementById('minutes').value--">-</button>
             <input type="number" class="minControls" id="minutes" min="2" max="60">
             <button type="button" class="minControls" id="inc" onclick="document.getElementById('minutes').value++">+</button>
@@ -13,12 +13,16 @@
     </body>
     <style>
         body{
-            background: #2d84a9;
+            background-image: url("bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 95%;
+            margin: 0 auto;
         }
         #start{
-            width: 97%;
+            width: 99%;
             height: 69vh;
-            font-size: 72px;
+            font-size: 72px;  
         }
         #minutes{
             margin: 0 auto;
@@ -26,7 +30,7 @@
         }
         .minControls{
             margin: 0 auto;
-            width: 29%;
+            width: 32%;
 	        height: 19vh;
 	        margin-left: auto;
             margin-right: auto;
@@ -35,14 +39,14 @@
         button{
             border-radius: 26px;
             border-width: 0;
-            background: #2d84a9;
+            background: #2d84a900;
             box-shadow:  5px 5px 10px #266f8e,
              -5px -5px 10px #3499c4;
         }
         input{
             border-width: 0;
             border-radius: 26px;
-            background: #2d84a9;
+            background: #2d84a900;
             box-shadow: inset 5px 5px 10px #266f8e,
             inset -5px -5px 10px #3499c4;
         }
