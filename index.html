@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>Solar Meditation</title>
+        <link rel="manifest" href="manifest.json">
     </head>
     <body>
         <button type="button" id="start" onclick="window.location.href = 'timer.html?time=' + document.getElementById('minutes').value;">Start</button>
-        <div style= "margin-top: 10vh; width: 100%">
+        <div style= "margin-top: 10vh; margin-left: auto; margin-right: auto;">
             <button type="button" class="minControls" id="dec" onclick="document.getElementById('minutes').value--">-</button>
             <input type="number" class="minControls" id="minutes" min="2" max="60">
             <button type="button" class="minControls" id="inc" onclick="document.getElementById('minutes').value++">+</button>
@@ -13,16 +14,12 @@
     </body>
     <style>
         body{
-            background-image: url("bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 95%;
-            margin: 0 auto;
+            background: #2d84a9;
         }
         #start{
-            width: 99%;
+            width: 97%;
             height: 69vh;
-            font-size: 72px;  
+            font-size: 72px;
         }
         #minutes{
             margin: 0 auto;
@@ -30,7 +27,7 @@
         }
         .minControls{
             margin: 0 auto;
-            width: 32%;
+            width: 29%;
 	        height: 19vh;
 	        margin-left: auto;
             margin-right: auto;
@@ -39,16 +36,22 @@
         button{
             border-radius: 26px;
             border-width: 0;
-            background: #2d84a900;
+            background: #2d84a9;
             box-shadow:  5px 5px 10px #266f8e,
              -5px -5px 10px #3499c4;
         }
         input{
             border-width: 0;
             border-radius: 26px;
-            background: #2d84a900;
+            background: #2d84a9;
             box-shadow: inset 5px 5px 10px #266f8e,
             inset -5px -5px 10px #3499c4;
         }
     </style>
+    <script>
+        if ("serviceWorker" in navigator) {
+            // register service worker
+            navigator.serviceWorker.register("service-worker.js");
+        }
+    </script>
 </html>
